@@ -1,0 +1,152 @@
+!!! Das komplette Projekt Achterbahn-Projekt ist inspiriert von TJC. Den Link zum Kanal und Inpirations-Video ist oben-rechts in meinem Viedeo dazu verlinkt. !!!
+
+Folgend sind alle Befehle sortiert nach Bildern. Hinter des Ortes des Befehls befindet sich die Beschreibung des Befehls/der Befehlskette, und falls nicht, gilt die nächste (obere/untere) Beschreibung.
+In den Befehlen mit <> eingeklammerten Teile, sind selber je nach Gebrauch durch jemailige Zeichen zu ersetzen. (Kordinatenformat: x, y, z; Rotationsformat: x (im Breich von -180 bis 180))
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fahrzeug:
+ <Bild1 - Block1><einmaliges Festsetzen der Geschwindigkeit>                     	> scoreboard players set @e[tag=cart] tempo <Blöcke pro Tick*2000>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild2 - Block1><Festsetzen einer Geschwindigkeit bei einer bestimmten Position>	> execute as @e[tag=cart, y=<Schinenhöhe + 0.5>, distance=0..1] run scoreboard players set @s tempo <Blöcke pro Tick*2000>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild3 - Block1><Erstellen>					  	  	 	> summon minecraft:allay <Position> {Tags:["cart", "now"], NoGravity:true, Invulnerable:true, Silent:true, NoAI:true}
+ <Bild3 - Block2>           							 	> scoreboard players set @e[tag=cart, tag=now] tempo 0
+ <Bild3 - Block3>                						 	> scoreboard players set @e[tag=cart, tag=now] bloeke 0
+ <Bild3 - Block4><Erstellen>							 	> tag @e[tag=cart, tag=now] remove now
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild4 - Block1><Löschen>							 	> kill @e[tag=cart]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild5.01 - Block1><Fahrtechnik>							> execute as @e[tag=cart] at @s if entity @e[tag=path,distance=..3] run teleport @s ~ ~ ~ ~ 0
+ <Bild5.01 - Block2>								 	> 
+ <Bild5.01 - Block3>								 	> execute as @e[tag=cart, tag=!normal] at @s if block ^1 ^ ^ rail run tag @s add normal
+ <Bild5.01 - Block4>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.01 - Block5>								 	> execute as @e[tag=cart, tag=normal, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.01 - Block6>								 	> execute as @e[tag=cart, tag=!normal] at @s if block ^ ^ ^1 rail run tag @s add normal
+ <Bild5.02 - Block7>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.02 - Block8>								 	> execute as @e[tag=cart, tag=normal, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.02 - Block9>								 	> execute as @e[tag=cart, tag=!normal] at @s if block ^-1 ^ ^ rail run tag @s add normal
+ <Bild5.02 - Block10>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.03 - Block11>								 	> execute as @e[tag=cart, tag=normal, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.03 - Block12>								 	> execute as @e[tag=cart, tag=!hoch] at @s if block ^1 ^1 ^ rail run tag @s add hoch
+ <Bild5.03 - Block13>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.03 - Block14>								 	> execute as @e[tag=cart, tag=hoch, tag=normal] at @s run tag @s remove normal
+ <Bild5.04 - Block15>								 	> execute as @e[tag=cart, tag=!hoch] at @s if block ^ ^1 ^1 rail run tag @s add hoch
+ <Bild5.04 - Block16>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.04 - Block17>								 	> execute as @e[tag=cart, tag=hoch, tag=normal] at @s run tag @s remove normal
+ <Bild5.04 - Block18>								 	> execute as @e[tag=cart, tag=!hoch] at @s if block ^-1 ^1 ^ rail run tag @s add hoch
+ <Bild5.05 - Block19>								 	> execute as @e[tag=cart, tag=normal, tag=runter] at @s run tag @s remove runter
+ <Bild5.05 - Block20>								 	> execute as @e[tag=cart, tag=hoch, tag=normal] at @s run tag @s remove normal
+ <Bild5.05 - Block21>								 	> execute as @e[tag=cart, tag=!runter] at @s if block ^1 ^-1 ^ rail run tag @s add runter
+ <Bild5.05 - Block22>								 	> execute as @e[tag=cart, tag=runter, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.06 - Block23>								 	> execute as @e[tag=cart, tag=runter, tag=normal] at @s run tag @s remove normal
+ <Bild5.06 - Block24>								 	> execute as @e[tag=cart, tag=!runter] at @s if block ^ ^-1 ^1 rail run tag @s add runter
+ <Bild5.06 - Block25>								 	> execute as @e[tag=cart, tag=runter, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.06 - Block26>								 	> execute as @e[tag=cart, tag=runter, tag=normal] at @s run tag @s remove normal
+ <Bild5.07 - Block27>								 	> execute as @e[tag=cart, tag=!runter] at @s if block ^-1 ^-1 ^ rail run tag @s add runter
+ <Bild5.07 - Block28>								 	> execute as @e[tag=cart, tag=runter, tag=hoch] at @s run tag @s remove hoch
+ <Bild5.07 - Block29>								 	> execute as @e[tag=cart, tag=runter, tag=normal] at @s run tag @s remove normal
+ <Bild5.07 - Block30>								 	> execute as @e[tag=runter] run scoreboard players add @s tempo 4
+ <Bild5.07 - Block31>								 	> execute as @e[tag=hoch] run scoreboard players remove @s tempo 5
+ <Bild5.07 - Block32>								 	> execute as @e[tag=normal] run scoreboard players remove @s tempo 2
+ <Bild5.08 - Block33>								 	> execute as @e[tag=cart] at @s if score @s tempo matches ..0 run scoreboard players set @s tempo 0
+ <Bild5.08 - Block34>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path,distance=..3] run teleport @s ~ ~ ~ facing entity @e[tag=path, sort=nearest, limit=1] eyes
+ <Bild5.08 - Block35>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 100.. run teleport @s ^ ^ ^0.05
+ <Bild5.08 - Block36>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.08 - Block37>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.09 - Block38>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 200.. run teleport @s ^ ^ ^0.05
+ <Bild5.09 - Block39>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.09 - Block40>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.09 - Block41>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 300.. run teleport @s ^ ^ ^0.05
+ <Bild5.09 - Block42>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.10 - Block43>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.10 - Block44>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 400.. run teleport @s ^ ^ ^0.05
+ <Bild5.10 - Block45>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.10 - Block46>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.10 - Block47>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 500.. run teleport @s ^ ^ ^0.05
+ <Bild5.11 - Block48>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.11 - Block49>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.11 - Block50>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 600.. run teleport @s ^ ^ ^0.05
+ <Bild5.11 - Block51>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.11 - Block52>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.12 - Block53>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 700.. run teleport @s ^ ^ ^0.05
+ <Bild5.12 - Block54>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.12 - Block55>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.12 - Block56>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 800.. run teleport @s ^ ^ ^0.05
+ <Bild5.12 - Block57>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.13 - Block58>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.13 - Block59>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 900.. run teleport @s ^ ^ ^0.05
+ <Bild5.13 - Block60>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.13 - Block61>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.13 - Block62>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1000.. run teleport @s ^ ^ ^0.05
+ <Bild5.14 - Block63>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.14 - Block64>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.14 - Block65>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1100.. run teleport @s ^ ^ ^0.05
+ <Bild5.14 - Block66>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.14 - Block67>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.15 - Block68>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1200.. run teleport @s ^ ^ ^0.05
+ <Bild5.15 - Block69>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.15 - Block70>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.15 - Block71>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1300.. run teleport @s ^ ^ ^0.05
+ <Bild5.15 - Block72>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.16 - Block73>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.16 - Block74>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1400.. run teleport @s ^ ^ ^0.05
+ <Bild5.16 - Block75>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.16 - Block76>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.16 - Block77>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1500.. run teleport @s ^ ^ ^0.05
+ <Bild5.17 - Block78>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.17 - Block79>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.17 - Block80>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1600.. run teleport @s ^ ^ ^0.05
+ <Bild5.17 - Block81>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.17 - Block82>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.18 - Block83>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1700.. run teleport @s ^ ^ ^0.05
+ <Bild5.18 - Block84>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.18 - Block85>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.18 - Block86>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1800.. run teleport @s ^ ^ ^0.05
+ <Bild5.18 - Block87>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.19 - Block88>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.19 - Block89>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 1900.. run teleport @s ^ ^ ^0.05
+ <Bild5.19 - Block90>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.19 - Block91>								 	> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5]
+ <Bild5.19 - Block92>								 	> execute as @e[tag=cart] at @s if entity @e[tag=path, distance=..3] if score @s tempo matches 2000.. run teleport @s ^ ^ ^0.05
+ <Bild5.20 - Block93>								 	> execute as @e[tag=cart] run scoreboard players add @s bloecke 5
+ <Bild5.20 - Block94><Fahrtechnik>							> execute as @e[tag=cart] at @s run kill @e[tag=path, distance=..0.5] 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tracing:
+ <Bild6 - Block1><Erstellen>								> summon minecraft:area_effect_cloud <Position> {Duration:72000,Rotation:[<Rotation>F,0F],Tags:["trace"]}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild7 - Block1><Anzeigen - Trace>							> execute as @e[tag=trace] at @s run particle minecraft:end_rod ~ ~0.5 ~ 0 0 0 0.01 1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild8 - Block1><Anzeigen - Path>							> execute as @e[tag=path] at @s run particle minecraft:cloud ~ ~ ~
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild9 - Block1><Löschen>								> kill @e[type=minecraft:area_effect_cloud]
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ <Bild10.01 - Block1><Tracingtechnik>							> execute as @e[tag=trace] at @s positioned ~ ~ ~ if block ~ ~ ~ rail unless entity @e[tag=path,distance=..0.2] run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:72000,Tags:["path"]}
+ <Bild10.01 - Block2>									> 
+ <Bild10.01 - Block3>									> 
+ <Bild10.01 - Block4>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^1 ^1 ^ rail run teleport @s ~ ~1 ~ ~-90 0
+ <Bild10.01 - Block5>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.01 - Block6>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^1 ^ ^ rail run teleport @s ~ ~ ~ ~-90 0
+ <Bild10.02 - Block7>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.02 - Block8>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^1 ^-1 ^ rail run teleport @s ~ ~-1 ~ ~-90 0
+ <Bild10.02 - Block9>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.02 - Block10>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^1 ^-1 ^ rail run teleport @s ~ ~-1 ~ ~-90 0
+ <Bild10.03 - Block11>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.03 - Block12>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^1 ^1 rail run teleport @s ~ ~1 ~ ~ 0
+ <Bild10.03 - Block13>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.03 - Block14>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^-1 ^1 rail run teleport @s ~ ~-1 ~ ~ 0
+ <Bild10.04 - Block15>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.04 - Block16>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^-1 ^1 ^ rail run teleport @s ~ ~1 ~ ~90 0
+ <Bild10.04 - Block17>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.04 - Block18>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^-1 ^ ^ rail run teleport @s ~ ~ ~ ~90 0
+ <Bild10.05 - Block19>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.05 - Block20>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^-1 ^-1 ^ rail run teleport @s ~ ~-1 ~ ~90 0
+ <Bild10.05 - Block21>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.05 - Block22>									> 
+ <Bild10.06 - Block23>									> execute as @e[tag=trace, tag=acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run teleport @s ^ ^ ^1
+ <Bild10.06 - Block24>									> execute as @e[tag=trace, tag=!acress_1, tag=!acress_2] at @s if block ^ ^ ^1 rail run tag @s add acress_1
+ <Bild10.06 - Block25>									> 
+ <Bild10.06 - Block26>									> data modify entity @e[tag=trace, limit=1, sort=arbitrary] Age set value 0
+ <Bild10.06 - Block27><Tracingtechnik>							> data modify entity @e[tag=path, limit=1, sort=arbitrary] Age set value 0
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
